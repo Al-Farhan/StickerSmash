@@ -5,9 +5,10 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 type Props = {
   label: string;
   theme?: "primary";
+  onPress?: () => void;
 };
 
-const Button = ({ label, theme }: Props) => {
+const Button = ({ label, theme, onPress }: Props) => {
   if (theme === "primary") {
     return (
       <View
@@ -18,7 +19,7 @@ const Button = ({ label, theme }: Props) => {
       >
         <Pressable
           style={[styles.button, { backgroundColor: "#fff" }]}
-          onPress={() => alert("You pressed a button.")}
+          onPress={onPress}
         >
           <FontAwesome
             name="picture-o"
